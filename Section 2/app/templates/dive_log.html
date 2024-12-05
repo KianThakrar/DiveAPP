@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Dive Log{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">My Dives</h1>
+
+    <!-- Sorting Buttons -->
+    <div class="mb-4 text-center">
+        <a href="{{ url_for('dive_log', order='desc') }}" class="btn btn-primary {% if current_order == 'desc' %}active{% endif %}">
+            Recent to Latest
+        </a>
+        <a href="{{ url_for('dive_log', order='asc') }}" class="btn btn-secondary {% if current_order == 'asc' %}active{% endif %}">
+            Latest to Most Recent
+        </a>
+    </div>
+
+    <div class="row">
+        {% if dive_events %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Dive Site</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in dive_events %}
+                <tr>
+                    <td>
+                        <!-- Make Dive Site Name Clickable -->
+                        <a href="{{ url_for('dive_site_detail', site_id=event.dive_site.id) }}">
+                            {{ event.dive_site.name }}
+                        </a>
+                    </td>
+                    <td>{{ event.date.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>{{ event.dive_site.location }}</td>
+                    <td>{{ event.dive_site.description or 'No description available.' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="col-12">
+            <p class="text-center">You haven't logged any dives yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+/* Table Styling */
+.table {
+    width: 100%;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid #0765F2; /* Add blue border to the entire table */
+    border-collapse: collapse; /* Ensure consistent border merging */
+    table-layout: fixed; /* Ensure consistent column widths */
+}
+
+/* Table Header */
+.table thead th {
+    background-color: #0765F2; /* Blue header */
+    color: white; /* White text */
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid 0765F2; /* Add border for header cells to make the table closed off */
+}
+
+/* Table Rows */
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Row Hover Effect */
+.table tbody tr:hover {
+    background-color: #ADD8E6; /* Light blue on hover */
+}
+
+/* Table Data Cells */
+.table tbody td {
+    padding: 12px 15px;
+    text-align: center; /* Ensure text alignment matches headers */
+    word-wrap: break-word; /* Wrap text for long descriptions */
+    border: 1px solid #ddd; /* Add border to each cell */
+}
+
+/* Add blue border for last row*/
+.table tbody tr:last-child td {
+    border-bottom: 1px solid #0765F2;
+}
+
+
+.card-img-top {
+    height: 300px; /* Make images larger */
+    object-fit: cover; /* Ensure the image fits without distortion */
+    border-radius: 10px 10px 0 0;
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: auto; /* Allow card height to adjust dynamically */
+    min-height: 400px; /* Ensure enough height for content visibility */
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-custom {
+    height: 200px; /* Adjusted height for a better aspect ratio */
+    object-fit: cover; /* Ensures images are cropped uniformly */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 90%; /* Use 90% of the screen width for better spacing */
+    margin: 0 auto; /* Center the container */
+}
+
+@media (max-width: 768px) {
+    .card {
+        min-height: 350px; /* Slightly smaller for mobile view */
+    }
+
+    .card-img-custom {
+        height: 150px; /* Smaller images on smaller screens */
+    }
+}
+
+.display-card {
+    width: 80%;
+    max-width: 900px; 
+    margin: 0 auto; /* Centers the card horizontally */
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+}
+
+.display-card .card-img-top {
+    height: 300px; /* Sets a specific height for the image */
+    object-fit: cover; /* Ensures the image scales nicely */
+    border-top-left-radius: 15px; /* Matches the card's rounded corners */
+    border-top-right-radius: 15px;
+}
+
+.display-card .card-body {
+    padding: 20px; /* Adds some spacing around the text */
+}
+
+
+
+/* Make heart red if favourited and grey if not*/
+
+.heart-icon.filled {
+    color: red; 
+}
+
+.heart-icon:not(.filled) {
+    color: grey; 
+}
+
+.heart-icon:hover {
+    color: darkred; 
+}
+
+/* Blue Navbar with white writing for links */
+.navbar {
+    background-color: #0765F2; 
+}
+
+.navbar a.nav-link {
+    color: #ffffff !important; /* Had problem with links being too dim so seached up how make sure its white */  
+}
+

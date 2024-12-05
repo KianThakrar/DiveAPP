@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card display-card shadow-sm">
+
+        {% if site.image_path %}
+        <img src="{{ url_for('static', filename=site.image_path) }}" class="card-img-top" alt="{{ site.name }}">
+        {% else %}
+        <img src="{{ url_for('static', filename='images/default.jpg') }}" class="card-img-top" alt="Default Image">
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ site.name }}</h5>
+            <p><strong>Location:</strong> {{ site.location }}</p>
+            <p>{{ site.description or 'No description available.' }}</p>
+            <a href="{{ url_for('dive_log') }}" class="btn btn-secondary">Back to My Dives</a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
